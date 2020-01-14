@@ -1,40 +1,85 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Input, Menu } from 'semantic-ui-react';
+import NavMenu from './components/nav/navmenu';
+import { Sidebar, Icon, Menu, Segment, Header, Image, Button, Container } from 'semantic-ui-react';
+
+import PropTypes from 'prop-types'
+
+const VerticalSidebar = ({ animation, direction, visible }) => (
+  <Sidebar
+    as={Menu}
+    animation={animation}
+    direction={direction}
+    icon='labeled'
+    inverted
+    vertical
+    visible={visible}
+    width='thin'
+  >
+    <Menu.Item as='a'>
+      <Icon name='home' />
+      Home
+    </Menu.Item>
+    <Menu.Item as='a'>
+      <Icon name='gamepad' />
+      Games
+    </Menu.Item>
+    <Menu.Item as='a'>
+      <Icon name='camera' />
+      Channels
+    </Menu.Item>
+  </Sidebar>
+)
+
+
+VerticalSidebar.propTypes = {
+  animation: PropTypes.string,
+  direction: PropTypes.string,
+  visible: PropTypes.bool,
+}
 
 function App() {
 
-  const [activeItem, setActiveItem] = useState();
+  const [animation, setAnimation] = useState('push');
+  const [direction, setDirection] = useState('left');
+  const [visible, setVisible] = useState(true);
+
+  const [dimmed, setDimmed] = useState(true);
+
+  const toggleSidebar = () => {
+    setVisible(!visible);
+  }
   
   return (
-    <Menu secondary>
-        <Menu.Item
-          name='home'
-          active={activeItem === 'home'}
-          onClick={setActiveItem}
-        />
-        <Menu.Item
-          name='messages'
-          active={activeItem === 'messages'}
-          onClick={setActiveItem}
-        />
-        <Menu.Item
-          name='friends'
-          active={activeItem === 'friends'}
-          onClick={setActiveItem}
-        />
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
-          </Menu.Item>
-          <Menu.Item
-            name='logout'
-            active={activeItem === 'logout'}
-            onClick={setActiveItem}
-          />
-        </Menu.Menu>
-    </Menu>
+    <>
+    <Sidebar.Pushable>
+
+    <VerticalSidebar
+      animation={animation}
+      direction={direction}
+      visible={visible}
+    />
+
+    <Sidebar.Pusher dimmed={dimmed && visible} onClick={() => visible && toggleSidebar()}>
+      <NavMenu toggleSidebar={() => toggleSidebar()} />
+    
+        <Container>
+          
+          <Segment basic>
+            <Header as='h3'>Application Content</Header>
+            <p>Hello Worldsss</p>
+          </Segment>
+          <Segment basic>
+            <Header as='h3'>Application Content</Header>
+            <p>Hello Worldsss</p>
+          </Segment>
+         
+        </Container>
+
+      </Sidebar.Pusher>
+
+    </Sidebar.Pushable>
+
+    </>
   );
 }
 
