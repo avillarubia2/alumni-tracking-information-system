@@ -1,54 +1,37 @@
-import React, { useState } from 'react';
-import { Input, Menu, Container, Responsive, Icon, Button } from 'semantic-ui-react';
+import React from 'react'
+import { Nav, Navbar, NavDropdown, Form, FormControl, Button, Container } from 'react-bootstrap'
 
 const NavMenu = (props) => {
-
-    const [activeItem, setActiveItem] = useState('home');
-
+    
     return (
-        <Menu secondary>
-            <Container>
 
-                <Responsive as={Menu.Item} minWidth={767}>
-                    <img class="logo" src="https://semantic-ui.com/examples/assets/images/logo.png" />
-                </Responsive>
+    <>
+    <Navbar bg="light" expand="lg">
+        <Container>
+            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="#link">Link</Nav.Link>
+                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                    </Nav>
+                    <Form inline>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2 mb-2 mb-sm-0" />
+                    <Button variant="outline-success">Search</Button>
+                    </Form>
+            </Navbar.Collapse>
+        </Container>
+    </Navbar>
+    </>
+    )
+    
+}
 
-                <Responsive as={Menu.Item} minWidth={767}
-                name='home'
-                active={activeItem === 'home'}
-                onClick={() => setActiveItem('home')}
-                />
-                <Responsive as={Menu.Item} minWidth={767}
-                name='messages'
-                active={activeItem === 'messages'}
-                onClick={() => setActiveItem('messages')}
-                />
-                <Responsive as={Menu.Item} minWidth={767}
-                name='friends'
-                active={activeItem === 'friends'}
-                onClick={() => setActiveItem('friends')}
-                />
-            
-                <Responsive as={Menu.Menu} minWidth={767} position='right'>
-                    <Menu.Item>
-                        <Input icon='search' placeholder='Search...' />
-                    </Menu.Item>
-                    <Menu.Item
-                        name='logout'
-                        active={activeItem === 'logout'}
-                    />
-                </Responsive>
-
-                <Responsive as={Menu.Menu} maxWidth={768}>
-                    <Menu.Item as={'a'} onClick={() => props.toggleSidebar()}>
-                        <Icon name='bars' />
-                    </Menu.Item>
-                </Responsive>
-
-            </Container>
-
-        </Menu>
-    );
-};
-
-export default NavMenu;
+export default NavMenu

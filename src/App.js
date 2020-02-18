@@ -1,84 +1,25 @@
-import React, { useState } from 'react';
-import NavMenu from './components/nav/navmenu';
-import { Sidebar, Icon, Menu, Segment, Header, Image, Button, Container } from 'semantic-ui-react';
+import React, { useState } from 'react'
+import './App.css'
+import { Route, Switch } from 'react-router-dom'
 
-import PropTypes from 'prop-types'
-
-const VerticalSidebar = ({ animation, direction, visible }) => (
-  <Sidebar
-    as={Menu}
-    animation={animation}
-    direction={direction}
-    icon='labeled'
-    inverted
-    vertical
-    visible={visible}
-    width='thin'
-  >
-    <Menu.Item as='a'>
-      <Icon name='home' />
-      Home
-    </Menu.Item>
-    <Menu.Item as='a'>
-      <Icon name='gamepad' />
-      Games
-    </Menu.Item>
-    <Menu.Item as='a'>
-      <Icon name='camera' />
-      Channels
-    </Menu.Item>
-  </Sidebar>
-)
-
-
-VerticalSidebar.propTypes = {
-  animation: PropTypes.string,
-  direction: PropTypes.string,
-  visible: PropTypes.bool,
-}
+import NavMenu from './components/nav/navmenu'
+import Home from './pages/home'
 
 function App() {
-
-  const [animation, setAnimation] = useState('push');
-  const [direction, setDirection] = useState('left');
-  const [visible, setVisible] = useState(true);
-
-  const [dimmed, setDimmed] = useState(true);
-
-  const toggleSidebar = () => {
-    setVisible(!visible);
-  }
   
   return (
     <>
-    <Sidebar.Pushable>
-
-    <VerticalSidebar
-      animation={animation}
-      direction={direction}
-      visible={visible}
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
     />
-
-    <Sidebar.Pusher dimmed={dimmed && visible} onClick={() => visible && toggleSidebar()}>
-      <NavMenu toggleSidebar={() => toggleSidebar()} />
     
-        <Container>
-          
-          <Segment basic>
-            <Header as='h3'>Application Content</Header>
-            <p>Hello Worldsss</p>
-          </Segment>
-          <Segment basic>
-            <Header as='h3'>Application Content</Header>
-            <p>Hello Worldsss</p>
-          </Segment>
-         
-        </Container>
-
-      </Sidebar.Pusher>
-
-    </Sidebar.Pushable>
-
+    <NavMenu />
+    <Switch>
+      <Route path='/' component={Home} />
+    </Switch>
     </>
   );
 }
