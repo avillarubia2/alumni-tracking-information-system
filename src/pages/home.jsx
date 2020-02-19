@@ -3,8 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 const Home = () => {
 
-    return (
-        <>
+    return ( 
         <Container>
             <section>
                 
@@ -16,7 +15,6 @@ const Home = () => {
                 
             </section>
         </Container>
-        </>
     )
 }
 
