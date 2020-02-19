@@ -5,7 +5,7 @@ const NavigationBar = ({container}) => {
     
     return (
     <>
-    <Navbar bg="white" expand="lg">
+    <Navbar bg="white" expand="lg" sticky="top">
         <Container fluid={container == "fluid" ? true : false}>
             <Navbar.Brand href="/"><strong>Alumni Tracking Information System</strong></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

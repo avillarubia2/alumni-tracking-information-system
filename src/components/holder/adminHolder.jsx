@@ -11,9 +11,9 @@ const AdminHolder = () => {
             <Container fluid="true">
                 <Row>
                     <Sidebar />
-                    <Col>
+                    <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                         <Admin />
-                    </Col>
+                    </main>
                 </Row>
             </Container>
         </>
