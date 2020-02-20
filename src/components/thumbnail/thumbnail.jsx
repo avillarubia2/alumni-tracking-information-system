@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Thumbnail = ({size}) => {
+const Thumbnail = ({ size }) => {
 
     var thumbSize = '40px'
-    if (size == 'xs')
+    if (size === 'xs')
         thumbSize = '20px'
-    else if (size == 'lg')
+    else if (size === 'lg')
         thumbSize = '60px'
-    else if (size == 'xl')
+    else if (size === 'xl')
         thumbSize = '90px'
     else if (size == "contain")
         thumbSize = "100%"
@@ -30,7 +30,7 @@ const Thumbnail = ({size}) => {
         float: 'left',
         margin: '0 15px 0 0'
     }
-    
+
     return (
         <span style={thumbStyle}>
         </span>
