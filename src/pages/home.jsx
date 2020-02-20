@@ -1,12 +1,12 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
 const Home = () => {
 
-    return (   
+    return (
         <Row>
             <Col>
-            <h1>This is a Home Page</h1>
+                <h1>This is a Home Page</h1>
             </Col>
         </Row>
     )
