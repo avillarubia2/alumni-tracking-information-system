@@ -1,8 +1,9 @@
 import React from 'react'
-import '../../assets/css/dashboard.css'
 import { Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Thumbnail from '../thumbnail/thumbnail'
+
+import '../../assets/css/dashboard.css'
 
 const Sidebar = () => {
     return (
