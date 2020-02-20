@@ -1,7 +1,8 @@
 import React from 'react'
-import '../../assets/css/dashboard.css';
-import { Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
+import '../../assets/css/dashboard.css'
 
 const Sidebar = () => {
     return (

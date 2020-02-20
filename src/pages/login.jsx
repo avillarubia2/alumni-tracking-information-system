@@ -1,11 +1,10 @@
 import React from 'react'
-import { Row, Col, Card, Button, FormControl, Form } from 'react-bootstrap'
+import { Row, Col, Card, Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
     return (
-        
-        <section style={{position:"fixed",width:"100%",height:"100%"}}>
+        <section style={{ position: "fixed", width: "100%", height: "100%" }}>
             <Col className="h-100">
                 <Row className="justify-content-center h-100">
                     <Col md="8" lg="6" xl="4" className="center-xy">
@@ -30,7 +29,6 @@ const Login = () => {
                 </Row>
             </Col>
         </section>
-        
     )
 }
 
