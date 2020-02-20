@@ -12,7 +12,7 @@ const NavigationBar = ({container}) => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                 <Nav.Link href="/admin">Admin Dashboard</Nav.Link>
-                {/* <Nav.Link href="#">Link</Nav.Link> */}
+                <Nav.Link href="/profile">Profile</Nav.Link>
                 <Nav.Link href="#">Logout</Nav.Link>
                 {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

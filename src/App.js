@@ -13,6 +13,7 @@ function App() {
   
     <Switch>
       <Route exact path="/(login)" component={LoginHolder}/>
+      <Route exact path="/(register)" component={LoginHolder}/>
       <Route path="/(admin)" component={AdminHolder}/>
       <Route component={DefaultHolder}/>
     </Switch>
