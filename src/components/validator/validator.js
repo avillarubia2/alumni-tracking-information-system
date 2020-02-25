@@ -1,6 +1,5 @@
 const validatePieces = require('joi-piece-validator')
-const accountSchema = require('atis-commons')
-
+const joiAccountSchema = require('atis-commons')
 let _accountSchema = addConfirmPasswordValidation()
 
 export default (obj, setter, name, value) => {
@@ -15,7 +14,7 @@ export default (obj, setter, name, value) => {
 }
 
 function addConfirmPasswordValidation() {
-    let _accountSchema = accountSchema()
+    let _accountSchema = joiAccountSchema()
     _accountSchema['confirm_password'] = _accountSchema.password
     return _accountSchema
 }

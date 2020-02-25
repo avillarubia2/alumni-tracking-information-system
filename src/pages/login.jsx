@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { login } from '../services/auth'
 import Message from '../components/validator/message'
 import validator from '../components/validator/validator'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Login = () => {
     const [payload, setPayload] = useState({})
@@ -66,7 +67,10 @@ const Login = () => {
                                         Login
                                     </Button>
                                     <p className='text-center'>or</p>
-                                    <Button variant='outline-dark' >Register</Button>
+
+                                    <LinkContainer to='/register'>
+                                        <Button variant='outline-dark' >Register</Button>
+                                    </LinkContainer>
                                 </Card>
                             </Form>
                             <p className='text-center'><Link to='#'>lost your password?</Link></p>
