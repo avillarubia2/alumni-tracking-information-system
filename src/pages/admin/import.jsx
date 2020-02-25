@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
-import { Button, Card, Col, Row } from 'react-bootstrap'
+import { Button, Card, Col, Row, Table, InputGroup, FormControl } from 'react-bootstrap'
 import CSVReader from 'react-csv-reader'
+import { importAccount } from '../../services/register'
+import { useEffect } from 'react'
+import { getImports } from '../../services/import'
 
 const Import = () => {
 
     const [csvData, setCsvData] = useState(null)
     const [isImporting, setIsImporting] = useState(false)
+    const [isImportDone, setIsImportDone] = useState(false)
     const [importCount, setImportCount] = useState(0)
     const [importTotal, setImportTotal] = useState(0)
-
-    const [beach, setBeach] = useState("")
+    const [imports, setImports] = useState([])
 
     const papaparseOptions = {
         header: true,
@@ -26,15 +29,27 @@ const Import = () => {
 
     const importData = (data) => {
         setIsImporting(true)
+
         var counter = 1
         data.forEach((element, index) => {
             setTimeout(() => {
-                setBeach(element.beach)
+                importAccount(element)
                 setImportCount(counter)
-                counter++
+                counter++;
+        
             }, index * 1000)
         })
     }
+
+    const getAccounts = async () => {
+        const accounts = await getImports()
+        setImports(accounts)
+        console.log(accounts)
+    }
+    useEffect(() => {
+        getAccounts()
+    },[])
+
 
     return (
         <section>
@@ -48,7 +63,7 @@ const Import = () => {
                     </Card>
                 </Col>
             </Row>
-            <Row>
+            <Row className="mb-4">
                 <Col>
                     <div className="py-4">
                         <h5>Uploader CSV File</h5>
@@ -64,10 +79,59 @@ const Import = () => {
                     
                     { isImporting &&
                     <div className="import-log mb-3">
-                        <p>Importing items ({importCount}/{importTotal})</p>
+                        { !isImportDone ?
+                            <p>Importing items ({importCount}/{importTotal})</p> : <p>Done!</p>
+                        } 
                     </div>
                     }
                     
+                </Col>
+            </Row>
+
+            <Row>
+                <Col md="6" lg="4">
+                    <InputGroup className="mb-3">
+                        <InputGroup.Prepend>
+                        <InputGroup.Text id="search-icon"><i className="fas fa-search"></i></InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl
+                        placeholder="Search..."
+                        aria-label="search"
+                        aria-describedby="search-icon"
+                        />
+                    </InputGroup>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Table responsive>
+                                <thead>
+                                    <tr className="border-top-0">
+                                    <th className="border-top-0">#</th>
+                                    <th className="border-top-0">Email</th>
+                                    <th className="border-top-0">First Name</th>
+                                    <th className="border-top-0">Last Name</th>
+                                    <th className="border-top-0">Temporary Password</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        imports.map((account,index) => (
+                                            <tr>
+                                                <td>{index+1}</td>
+                                                <td>{account.email}</td>
+                                                <td>{account.first_name}</td>
+                                                <td>{account.last_name}</td>
+                                                <td>{account.temp_password}</td>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </Table>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
         </section>

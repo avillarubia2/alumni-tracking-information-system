@@ -8,3 +8,8 @@ export async function register(account) {
 
   return data
 }
+
+export async function importAccount(account) {
+  const { data } = await http.post('import/', account)
+  return data
+}

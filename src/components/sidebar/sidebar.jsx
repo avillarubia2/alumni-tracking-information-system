@@ -19,7 +19,7 @@ const Sidebar = () => {
                             <li><a href="#" className="nav-link"><i className="fas fa-tachometer-alt text-muted mr-2"></i> Dashboard</a></li>
                         </LinkContainer>
                         <LinkContainer to="/admin/alumnis">
-                            <li><a href="#" className="nav-link"><i className="fas fa-users text-muted mr-2"></i> Alumnis</a></li>
+                            <li><a href="#" className="nav-link"><i className="fas fa-users text-muted mr-2"></i> Alumni List</a></li>
                         </LinkContainer>
                         <LinkContainer to="/admin/import">
                             <li><a href="#" className="nav-link"><i className="fas fa-file-import text-muted mr-2"></i> Import</a></li>
