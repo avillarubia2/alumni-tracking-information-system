@@ -6,7 +6,6 @@ const Import = () => {
 
     const [csvData, setCsvData] = useState(null)
     const [isImporting, setIsImporting] = useState(false)
-    const [importDone, setImportDone] = useState(false)
     const [importCount, setImportCount] = useState(0)
     const [importTotal, setImportTotal] = useState(0)
 
@@ -21,6 +20,7 @@ const Import = () => {
 
     const handleForce = (data) => {
         setCsvData(data)
+        setImportCount(0)
         setImportTotal(data.length)
     }
 
