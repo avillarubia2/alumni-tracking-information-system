@@ -1,5 +1,7 @@
 import React from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { isUserLoggedIn } from '../redux/actions/authActions'
 
 const Home = () => {
 

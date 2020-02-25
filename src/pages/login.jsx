@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Row, Col, Card, Button, Form } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { login } from '../services/auth'
 import Message from '../components/validator/message'
 import validator from '../components/validator/validator'
@@ -9,8 +9,15 @@ const Login = () => {
     const [payload, setPayload] = useState({})
     const [error, setError] = useState({})
 
+    let history = useHistory();
+
     const handleLogin = async () => {
-        await login(payload)
+        try {
+            await login(payload)
+            history.push('/')
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     const handleTextChange = ({ target: { name, value } }) => {

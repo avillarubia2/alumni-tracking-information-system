@@ -8,6 +8,7 @@ import AdminHolder from './components/holder/adminHolder'
 import './App.css'
 
 function App() {
+  
   return (
     <Switch>
       <Route exact path="/(login)" component={LoginHolder}/>
