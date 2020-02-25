@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
 import { Row, Col, Card, Button, Form } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { login } from '../services/auth'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Login = () => {
     const [payload, setPayload] = useState({ email: '', password: '' })
 
+    let history = useHistory();
+
     const handleLogin = async () => {
-        await login(payload)
+        try {
+            await login(payload)
+            history.push('/')
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     const handleTextChange = ({ target: { name, value } }) => {
@@ -32,7 +40,9 @@ const Login = () => {
                                 </Form.Group>
                                 <Button className="mb-3" onClick={handleLogin}>Login</Button>
                                 <p className="text-center">or</p>
-                                <Button variant="outline-dark">Register</Button>
+                                <LinkContainer to="/register">
+                                    <Button variant="outline-dark">Register</Button>
+                                </LinkContainer>
                             </Card>
                             <p className="text-center"><Link to="#">lost your password?</Link></p>
                         </div>

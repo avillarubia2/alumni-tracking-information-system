@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, FormControl, InputGroup, Row, Table } from 'react-bootstrap'
+import { Col, FormControl, InputGroup, Row, Table, Card } from 'react-bootstrap'
 
 const Alumnis = () => {
     return (
@@ -20,48 +20,52 @@ const Alumnis = () => {
             </Row>
             <Row>
                 <Col>
-                    <Table responsive>
-                        <thead>
-                            <tr>
-                            <th>#</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td>1</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            </tr>
-                            <tr>
-                            <td>2</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            </tr>
-                            <tr>
-                            <td>3</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            </tr>
-                        </tbody>
-                    </Table>
+                    <Card>
+                        <Card.Body>
+                            <Table responsive>
+                                <thead>
+                                    <tr className="border-top-0">
+                                    <th className="border-top-0">#</th>
+                                    <th className="border-top-0">Table heading</th>
+                                    <th className="border-top-0">Table heading</th>
+                                    <th className="border-top-0">Table heading</th>
+                                    <th className="border-top-0">Table heading</th>
+                                    <th className="border-top-0">Table heading</th>
+                                    <th className="border-top-0">Table heading</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <td>1</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    </tr>
+                                    <tr>
+                                    <td>2</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    </tr>
+                                    <tr>
+                                    <td>3</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
         </section>
