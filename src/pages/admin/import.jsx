@@ -1,7 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
+import CSVReader from 'react-csv-reader'
 
 const Import = () => {
+
+    const [csvData, setCsvData] = useState(null)
+    const [isImporting, setIsImporting] = useState(false)
+    const [importDone, setImportDone] = useState(false)
+    const [importCount, setImportCount] = useState(0)
+    const [importTotal, setImportTotal] = useState(0)
+
+    const [beach, setBeach] = useState("")
+
+    const papaparseOptions = {
+        header: true,
+        dynamicTyping: true,
+        skipEmptyLines: true,
+        transformHeader: header => header.toLowerCase().replace(/\W/g, "_")
+    };
+
+    const handleForce = (data) => {
+        setCsvData(data)
+        setImportTotal(data.length)
+    }
+
+    const importData = (data) => {
+        setIsImporting(true)
+        var counter = 1
+        data.forEach((element, index) => {
+            setTimeout(() => {
+                setBeach(element.beach)
+                setImportCount(counter)
+                counter++
+            }, index * 1000)
+        })
+    }
+
     return (
         <section>
             <Row className="mb-4">
@@ -16,9 +50,24 @@ const Import = () => {
             </Row>
             <Row>
                 <Col>
-                    <p className="p-4">
-                    <h5>File Uploader Here</h5>
-                    </p>
+                    <div className="py-4">
+                        <h5>Uploader CSV File</h5>
+                        <CSVReader
+                        cssClass="react-csv-input mb-2"
+                        label="Select your csv file here"
+                        onFileLoaded={handleForce}
+                        parserOptions={papaparseOptions}
+                        />
+
+                        {csvData && <Button variant="primary" onClick={() => importData(csvData)}>Import</Button>}
+                    </div>
+                    
+                    { isImporting &&
+                    <div className="import-log mb-3">
+                        <p>Importing items ({importCount}/{importTotal})</p>
+                    </div>
+                    }
+                    
                 </Col>
             </Row>
         </section>
