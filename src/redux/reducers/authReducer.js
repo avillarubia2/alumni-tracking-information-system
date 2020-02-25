@@ -1,22 +1,21 @@
 const initState = {
-    token: localStorage.getItem('atis-login-token'),
-    isAuthenticated: null,
-    user: null
+    token: localStorage.getItem('atis-login-token')
 }
 
 export default function(state = initState, action) {
     switch(action.type) {
-        case 'USER_LOADED':
+        case 'USER_LOGIN':
             return {
                 ...state,
                 isAuthenticated: true,
-                user: action.payload
+                user: {}
             }
-        case 'REGISTER_SUCCESS':
-        case 'LOGIN_SUCCESS':
+        case 'USER_LOGOUT':
             return {
                 ...state,
-                isAuthenticated: true,
+                token: null,
+                isAuthenticated: false,
+                user: null
             }
         default: 
             return state

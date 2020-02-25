@@ -1,10 +1,12 @@
-//import { useDispatch } from 'react-redux'
 
-export const loadUser = () => (dispatch, getState) => {
-    //const dispatch = useDispatch()
-    //console.log(getState());
-    console.log('hello!');
-    //dispatch({type: 'LOGIN_SUCCESS', isAuthenticated: true})
+export const userLogin = () => {
+    return {
+        type: 'USER_LOGIN'
+    }
 }
 
-//export default loadUser
+export const userLogout = () => {
+    return {
+        type: 'USER_LOGOUT'
+    }
+}

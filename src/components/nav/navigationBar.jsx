@@ -1,7 +1,29 @@
-import React from 'react'
-import { Nav, Navbar, Container } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Button, Container, Nav, Navbar } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCurrentUser, logout } from '../../services/auth'
+import { useEffect } from 'react'
 
 const NavigationBar = ({ container }) => {
+
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+    
+    useEffect(() => {
+        getCurrentUser() ? setIsUserLoggedIn(true) : setIsUserLoggedIn(false)
+    });
+    
+    const logoutUser = () => {
+        logout()
+        setIsUserLoggedIn(false)
+    }
+    
+    const userLinks = (
+        <Button variant="link" onClick={() => logoutUser()}>Log Out</Button>
+    )
+    const guestLinks = (
+        <Nav.Link href="/login">Log In</Nav.Link>
+    )
+
     return (
         <>
             <Navbar bg="white" expand="lg" sticky="top">
@@ -12,7 +34,8 @@ const NavigationBar = ({ container }) => {
                         <Nav className="ml-auto">
                             <Nav.Link href="/admin">Admin Dashboard</Nav.Link>
                             <Nav.Link href="/profile">Profile</Nav.Link>
-                            <Nav.Link href="#">Logout</Nav.Link>
+
+                            { isUserLoggedIn ? userLinks : guestLinks }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
