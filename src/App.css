@@ -10,3 +10,10 @@ html, body {
 section {
   padding: 50px 0px;
 }
+
+.csv-input {
+  padding: 10px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

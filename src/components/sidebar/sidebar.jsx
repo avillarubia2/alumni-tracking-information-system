@@ -16,13 +16,13 @@ const Sidebar = () => {
                     
                     <ul className="nav flex-column">
                         <LinkContainer to="/admin/dashboard">
-                            <li><a href="#" className="nav-link"><i class="fas fa-tachometer-alt text-muted mr-2"></i> Dashboard</a></li>
+                            <li><a href="#" className="nav-link"><i className="fas fa-tachometer-alt text-muted mr-2"></i> Dashboard</a></li>
                         </LinkContainer>
                         <LinkContainer to="/admin/alumnis">
-                            <li><a href="#" className="nav-link"><i class="fas fa-users text-muted mr-2"></i> Alumnis</a></li>
+                            <li><a href="#" className="nav-link"><i className="fas fa-users text-muted mr-2"></i> Alumnis</a></li>
                         </LinkContainer>
                         <LinkContainer to="/admin/import">
-                            <li><a href="#" className="nav-link"><i class="fas fa-file-import text-muted mr-2"></i> Import</a></li>
+                            <li><a href="#" className="nav-link"><i className="fas fa-file-import text-muted mr-2"></i> Import</a></li>
                         </LinkContainer>
                     </ul>
                    
