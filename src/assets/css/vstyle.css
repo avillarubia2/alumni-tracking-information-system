@@ -26,11 +26,6 @@
 .text-lowercase {text-transform: lowercase}
 .text-capitalize {text-transform: capitalize}
 
-/* Text Color */
-.text-white {
-    color: #fff;
-}
-
 /* Overlays */
 .overlay-after,
 .overlay-before {
