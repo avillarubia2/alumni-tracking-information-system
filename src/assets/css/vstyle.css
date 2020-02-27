@@ -22,6 +22,10 @@
 
 /* Typography */
 .text-white {color: #fff;}
+/* Text Color */
+.text-white {
+    color: #fff;
+}
 .text-uppercase {text-transform: uppercase}
 .text-lowercase {text-transform: lowercase}
 .text-capitalize {text-transform: capitalize}
