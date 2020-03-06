@@ -86,3 +86,5 @@
 
 /* Visibility */
 .hidden {display:none;}
+
+.text-uppercase {text-transform: uppercase}
